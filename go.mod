@@ -1,4 +1,5 @@
-module main
+module github.com/Jyjays/SimpleDouyin
+
 
 go 1.17
 
