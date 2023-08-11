@@ -1,6 +1,6 @@
 syntax = "proto2";
 package protos;
-
+option go_package = "github.com/Jyjays/SimpleDouyin/models";
 message douyin_user_login_request {
   required string username = 1; // 登录用户名
   required string password = 2; // 登录密码
