@@ -12,10 +12,8 @@ import (
 	"gorm.io/gorm"
 )
 
-var user models.User
-
 func InitializeMysql() {
-	cfg, err := ini.Load("config.ini")
+	cfg, err := ini.Load("config/config.ini")
 	if err != nil {
 		log.Fatalf("无法加载配置文件: %v", err)
 	}
@@ -55,6 +53,5 @@ func InitializeMysql() {
 	database.SetMaxIdleConns(10)
 	database.SetMaxOpenConns(100)
 
-	global.Db.AutoMigrate(&user)
-
+	global.Db.AutoMigrate(&models.User{})
 }
