@@ -5,9 +5,10 @@ import (
 
 	"github.com/Jyjays/SimpleDouyin/global"
 	"github.com/Jyjays/SimpleDouyin/models"
+	"github.com/Jyjays/SimpleDouyin/utils"
 	"github.com/gin-gonic/gin"
 )
-
+//结构体
 type LoginRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
@@ -27,12 +28,16 @@ func UserLogin(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
 		return
 	}
-
+  //使用jwt生成token
+	token, err := utils.GenerateJWT()
+	if err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Initialize failed"})
+	}
 	// 登录成功，构造并返回 JSON 响应
 	response := gin.H{
 		"status_code": 0,
 		"user_id":     user.Id,
-		"token":       "your_generated_token",
+		"token":       token,
 	}
 	c.JSON(http.StatusOK, response)
 }

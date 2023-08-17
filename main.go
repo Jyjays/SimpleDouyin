@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	initialize.InitializeMysql()
+	initialize.InitializeMysql()         
 
 	r := gin.Default()
 	router.InitRouter(r)

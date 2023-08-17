@@ -3,6 +3,7 @@ module github.com/Jyjays/SimpleDouyin
 go 1.20
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-ini/ini v1.67.0
 	google.golang.org/protobuf v1.30.0
